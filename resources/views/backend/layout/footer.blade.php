@@ -41,7 +41,7 @@
  </div>
  </div>
  <script type="text/javascript" src="{{asset('backend/assets/scripts/main.js')}}"></script>
- <script src="{{asset('js/fontawesome.js')}}"></script>
+ @yield('js')
  </body>
 
- </script>
+ </html>

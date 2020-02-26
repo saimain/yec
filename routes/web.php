@@ -18,4 +18,5 @@ Route::post('admin/login', 'Backend\Auth\LoginController@login');
 
 Route::group(['namespace' => 'Backend' , 'middleware'=>'auth:admin'], function () {
     Route::get('/dashboard', 'DashboardController@index');
+    Route::get('/students', 'UserController@index');
 });
