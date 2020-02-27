@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
@@ -67,7 +68,7 @@ class UserController extends Controller
 
     public function addcourseform()
     {
-        $courses = Course::all();
+        $courses = DB::table('courses')->where('status', 0)->get();
         return view('backend.add_student_course', compact('courses'));
     }
 
@@ -91,6 +92,30 @@ class UserController extends Controller
     public function detail($id)
     {
         $user = User::find($id);
-        return view('backend.student_detail', compact('user'));
+        $user_course = $user->course()->get();
+        
+        return view('backend.student_detail', compact('user', 'user_course'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->name = request('name');
+    
+       
+        $user->detail()->update([
+            'phone' => request('phone'),
+            'dob' => request('dob'),
+            'address' => request('address'),
+            'education' => request('education'),
+            'company' => request('company'),
+            'role' => request('role'),
+            'where' => request('where')
+        ]);
+
+
+        $user_course = $user->course()->get();
+        
+        return view('backend.student_detail', compact('user', 'user_course'));
     }
 }

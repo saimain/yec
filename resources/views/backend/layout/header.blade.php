@@ -190,13 +190,13 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="elements-buttons-standard.html">
+                                        <a href="/courses">
                                             <i class="metismenu-icon"></i>
                                             View All Courses
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="/courses/add">
                                             <i class="metismenu-icon">
                                             </i>Add New Course
                                         </a>

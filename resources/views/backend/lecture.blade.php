@@ -12,11 +12,11 @@
 <div class="page-title-wrapper">
     <div class="page-title-heading">
         <div class="page-title-icon">
-            <i class="pe-7s-users icon-gradient bg-mean-fruit">
+            <i class="pe-7s-study icon-gradient bg-mean-fruit">
             </i>
         </div>
-        <div>Student Managment
-            <div class="page-title-subheading">This is the page for overview of students.
+        <div>Lectures Managment
+            <div class="page-title-subheading">This is the page for overview of lectures.
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
 
 <div class="main-card mb-3 card">
     <div class="card-body">
-        <h5 class="card-title">Students Table</h5>
+        <h5 class="card-title">Courses Table</h5>
         <div class="divider mt-0" style="margin-bottom: 20px;"></div>
 
         <div class="">
@@ -35,12 +35,14 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th style="min-width:150px !important;">Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th style="min-width:100px !important;">Date of Birth</th>
-                        <th>Company</th>
-                        <th>Registed</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Duration</th>
+                        <th>Fees</th>
+                        <th>Lecture</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -49,33 +51,45 @@
                     <tr>
                         <th>No.</th>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Date of Birth</th>
-                        <th>Company</th>
-                        <th>Registed</th>
+                        <th>Description</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Duration</th>
+                        <th>Fees</th>
+                        <th>Lecture</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
 
                 <tbody>
-                    @foreach($users as $user)
+                    @foreach($courses->sortBy('status') as $course)
                     <tr>
                         <td>{{$loop->index + 1}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</>
+                        <td>{{$course->name}}</td>
                         <td>
-                            {{$user->detail['phone']}}
+                            {{ substr($course->description, 0, 20) }}
+                        </td>
+                        <td> {{date('d-m-Y', strtotime($course->start))}}</td>
+                        <td>
+                            {{date('d-m-Y', strtotime($course->end))}}
                         </td>
                         <td>
-                            {{date('d-m-Y', strtotime($user->detail['dob']))}}
+                            {{$course->duration}}
                         </td>
-                        <td>{{$user->detail['company']}}</td>
+                        <td>{{$course->fees}}</td>
+                        <td>{{$course->lecture->name}}</td>
+                        <td>
+                            @if($course->status == 0)
+                            <div class="mb-2 mr-2 badge badge-pill badge-success">Running</div>
+                            @else
+                            <div class="mb-2 mr-2 badge badge-pill badge-secondary">Complete</div>
+                            @endif
+                        </td>
                         <td>
 
-                            <a href="/student/detail/{{$user->id}}" class="mb-2 mr-2 btn btn-sm btn-info text-white"
-                                data-id="{{$user->id}}">
+                            <a href="/student/detail/{{$course->id}}" class="mb-2 mr-2 btn btn-sm btn-info text-white"
+                                data-id="{{$course->id}}">
                                 Check
                             </a>
 

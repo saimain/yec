@@ -1,5 +1,8 @@
 <?php
 
+use App\Model\Course;
+use App\Model\User\User;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -25,4 +28,11 @@ Route::group(['namespace' => 'Backend' , 'middleware'=>'auth:admin'], function (
     Route::post('/students/add', 'UserController@add');
     Route::post('/students/add/course', 'UserController@addcourse');
     Route::get('/student/detail/{id}', 'UserController@detail');
+    Route::post('/students/update/{id}', 'UserController@update');
+    
+    Route::get('/courses', 'CourseController@index');
+    Route::get('/courses/add', 'CourseController@addform');
+    Route::post('/courses/add', 'CourseController@add');
+    Route::get('/courses/detail/{id}', 'CourseController@detail');
+    Route::post('/courses/update/{id}', 'CourseController@update');
 });

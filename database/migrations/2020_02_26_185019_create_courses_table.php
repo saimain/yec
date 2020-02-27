@@ -17,17 +17,19 @@ class CreateCoursesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->unsignedBigInteger('lecture_id')->index();
-            $table->text('description');
-            $table->date('start');
-            $table->date('end');
-            $table->string('duration');
-            $table->string('timetable');
-            $table->string('fees');
-            $table->string('exam');
-            $table->string('examregfees');
-            $table->string('examfees');
-            $table->string('note');
-            $table->string('cover');
+            $table->text('description')->nullable();
+            $table->date('start')->nullable();
+            $table->date('end')->nullable();
+            $table->string('duration')->nullable();
+            $table->string('timetable')->nullable();
+            $table->string('fees')->nullable();
+            $table->string('exam')->nullable();
+            $table->string('examregfees')->nullable();
+            $table->string('examfees')->nullable();
+            $table->string('note')->nullable();
+            $table->string('cover')->nullable();
+            $table->boolean('status')->default(false);
+
             $table->timestamps();
 
             $table->foreign('lecture_id')->references('id')->on('lectures');
