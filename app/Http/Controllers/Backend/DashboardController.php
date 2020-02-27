@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Model\Course;
+use App\Model\Lecture;
 use App\Model\User\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Lecture;
 
 class DashboardController extends Controller
 {
@@ -13,6 +14,8 @@ class DashboardController extends Controller
     {
         $users = User::all();
         $lectures = Lecture::all();
-        return view('backend.dashboard', compact('users', 'lectures'));
+        $courses = Course::all();
+
+        return view('backend.dashboard', compact('users', 'lectures', 'courses'));
     }
 }

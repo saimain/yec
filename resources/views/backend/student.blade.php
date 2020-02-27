@@ -31,16 +31,17 @@
         <div class="divider mt-0" style="margin-bottom: 20px;"></div>
 
         <div class="">
-            <table class="mb-0 table table-bordered" id="student-table">
+            <table class="mb-0 table table-bordered table-hover table-responsive" id="student-table">
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Name</th>
+                        <th style="min-width:150px !important;">Name</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th>Date of Birth</th>
-                        <th>Education</th>
+                        <th style="min-width:100px !important;">Date of Birth</th>
+                        <th>Company</th>
                         <th>Registed</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
@@ -51,27 +52,35 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Date of Birth</th>
-                        <th>Education</th>
+                        <th>Company</th>
                         <th>Registed</th>
+                        <th>Action</th>
                     </tr>
                 </tfoot>
 
                 <tbody>
-                    @foreach($user_details as $user)
-                    @php
-                    $detail = App\Model\User\User::find($user->user_id)->user;
-                    dd($detail)
-                    @endphp
+                    @foreach($users as $user)
                     <tr>
                         <td>{{$loop->index + 1}}</td>
-                        <td>{{$user->phone}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->name}}</td>
                         <td>{{$user->email}}</>
                         <td>
+                            {{$user->detail['phone']}}
+                        </td>
+                        <td>
+                            {{date('d-m-Y', strtotime($user->detail['dob']))}}
+                        </td>
+                        <td>{{$user->detail['company']}}</td>
+                        <td>
+
+                            <a href="/student/detail/{{$user->id}}" class="mb-2 mr-2 btn btn-sm btn-info text-white"
+                                data-id="{{$user->id}}">
+                                Check
+                            </a>
 
                         </td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$3,120</td>
+
                     </tr>
                     @endforeach
                 </tbody>
@@ -90,6 +99,10 @@
 <script>
     $(document).ready(function() {
         var table = $('#student-table').DataTable();
+
+
+
+
     });
 </script>
 @endsection

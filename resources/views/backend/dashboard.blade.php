@@ -52,7 +52,7 @@
             <div class="widget-content">
                 <div class="widget-content-wrapper">
                     <div class="widget-content-right ml-0 mr-3">
-                        <div class="widget-numbers text-danger">54</div>
+                        <div class="widget-numbers text-danger">{{$courses->count()}}</div>
                     </div>
                     <div class="widget-content-left">
                         <div class="widget-heading">Total Courses</div>

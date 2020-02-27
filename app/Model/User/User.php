@@ -2,6 +2,8 @@
 
 namespace App\Model\User;
 
+use App\Model\Course;
+use App\Model\UserDetail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -38,8 +40,13 @@ class User extends Authenticatable
     ];
 
   
-    public function user()
+    public function detail()
     {
-        return $this->belongsTo('App\Model\UserDetail');
+        return $this->hasOne(UserDetail::class);
+    }
+
+    public function course()
+    {
+        return $this->belongsToMany(Course::class)->withTimestamps();
     }
 }

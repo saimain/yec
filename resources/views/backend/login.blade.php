@@ -14,14 +14,14 @@
                                 <form class="" action="{{route('admin.login')}}" method="post">
                                     @csrf
                                     <div class="position-relative form-group">
-                                        <label for="exampleEmail" class="">Email</label>
-                                        <input name="email" id="exampleEmail" placeholder="with a placeholder"
-                                            type="email" class="form-control">
+                                        <label for="email" class="">Email</label>
+                                        <input name="email" id="email" placeholder="Email" type="email"
+                                            class="form-control">
                                     </div>
                                     <div class="position-relative form-group">
-                                        <label for="examplePassword" class="">Password</label>
-                                        <input name="password" id="examplePassword" placeholder="password placeholder"
-                                            type="password" class="form-control">
+                                        <label for="password" class="">Password</label>
+                                        <input name="password" id="password" placeholder="Password" type="password"
+                                            class="form-control">
                                     </div>
                                     <button class="mt-1 btn btn-primary">Submit</button>
                                 </form>

@@ -2,12 +2,15 @@
 
 namespace App\Model;
 
+use App\Model\User\User;
 use Illuminate\Database\Eloquent\Model;
 
 class UserDetail extends Model
 {
-    public function detail()
+    protected $guarded = [];
+    
+    public function user()
     {
-        return $this->hasOne('App\Model\User\User');
+        return $this->belongsTo(User::class);
     }
 }

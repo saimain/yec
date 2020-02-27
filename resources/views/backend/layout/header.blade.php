@@ -1,4 +1,5 @@
 <body>
+    @include('sweet::alert')
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
@@ -145,9 +146,15 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="/students/add">
                                             <i class="metismenu-icon">
                                             </i>Add New Student
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/students/add/course">
+                                            <i class="metismenu-icon">
+                                            </i>Add Student Course
                                         </a>
                                     </li>
                                 </ul>

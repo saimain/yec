@@ -15,7 +15,7 @@ class CreateUserDetailsTable extends Migration
     {
         Schema::create('user_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->uniqid()->unsigned();
+            $table->unsignedBigInteger('user_id')->index();
             $table->string('phone');
             $table->date('dob');
             $table->text('address');
@@ -24,6 +24,8 @@ class CreateUserDetailsTable extends Migration
             $table->text('role')->nullable();
             $table->text('where')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
