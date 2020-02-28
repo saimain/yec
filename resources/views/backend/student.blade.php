@@ -98,7 +98,10 @@
 
 <script>
     $(document).ready(function() {
-        var table = $('#student-table').DataTable();
+        var table = $('#student-table').DataTable({
+
+            "pagingType": "simple"
+        });
 
 
 

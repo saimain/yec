@@ -52,9 +52,9 @@
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
                                             <i class="metismenu-icon pe-7s-user pe-3x pe-va"></i>
-                                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                            <!-- <i class="fa fa-angle-down ml-2 opacity-8"></i> -->
                                         </a>
-                                        <div tabindex="-1" role="menu" aria-hidden="true"
+                                        <!-- <div tabindex="-1" role="menu" aria-hidden="true"
                                             class="dropdown-menu dropdown-menu-right">
                                             <button type="button" tabindex="0" class="dropdown-item">User
                                                 Account</button>
@@ -66,7 +66,7 @@
                                                 @csrf
                                                 <button type="submit" tabindex="0" class="dropdown-item">Logout</button>
                                             </form>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
@@ -168,13 +168,13 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="elements-buttons-standard.html">
+                                        <a href="/lectures">
                                             <i class="metismenu-icon"></i>
                                             View All Lectures
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="/lectures/add">
                                             <i class="metismenu-icon">
                                             </i>Add New Lecture
                                         </a>
@@ -200,6 +200,49 @@
                                             <i class="metismenu-icon">
                                             </i>Add New Course
                                         </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="app-sidebar__heading">Event</li>
+                            <li>
+                                <a href="#" class="@yield('event-menu')">
+                                    <i class="metismenu-icon pe-7s-date"></i>
+                                    Event Management
+                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="/events">
+                                            <i class="metismenu-icon"></i>
+                                            View All Events
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/events/add">
+                                            <i class="metismenu-icon">
+                                            </i>Add New Event
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="app-sidebar__heading">Settings</li>
+                            <li>
+                                <a href="#" class="@yield('setting-menu')">
+                                    <i class="metismenu-icon pe-7s-date"></i>
+                                    Account Settings
+                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <form id="logout-form" action="{{ route('logout') }}" id="logout_form"
+                                            method="POST">
+                                            @csrf
+                                            <a href="javascript:void()"
+                                                onclick="document.getElementById('logout_form').submit();">
+                                                <i class=" metismenu-icon">
+                                                </i>Logout Dashboard</a>
+                                        </form>
+
                                     </li>
                                 </ul>
                             </li>

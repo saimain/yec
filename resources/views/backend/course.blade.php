@@ -83,7 +83,7 @@
                         </td>
                         <td>
 
-                            <a href="/courses/detail/{{$course->id}}" class="mb-2 mr-2 btn btn-sm btn-info text-white"
+                            <a href="/course/detail/{{$course->id}}" class="mb-2 mr-2 btn btn-sm btn-info text-white"
                                 data-id="{{$course->id}}">
                                 Check
                             </a>

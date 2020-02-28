@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use App\Model\Course;
 use App\Model\User\User;
 
@@ -28,11 +29,25 @@ Route::group(['namespace' => 'Backend' , 'middleware'=>'auth:admin'], function (
     Route::post('/students/add', 'UserController@add');
     Route::post('/students/add/course', 'UserController@addcourse');
     Route::get('/student/detail/{id}', 'UserController@detail');
-    Route::post('/students/update/{id}', 'UserController@update');
+    Route::post('/student/update/{id}', 'UserController@update');
     
     Route::get('/courses', 'CourseController@index');
     Route::get('/courses/add', 'CourseController@addform');
     Route::post('/courses/add', 'CourseController@add');
-    Route::get('/courses/detail/{id}', 'CourseController@detail');
-    Route::post('/courses/update/{id}', 'CourseController@update');
+    Route::get('/course/detail/{id}', 'CourseController@detail');
+    Route::post('/course/update/{id}', 'CourseController@update');
+
+    Route::post('/qualification/add', 'QualificationController@add');
+
+    Route::get('/lectures', 'LectureController@index');
+    Route::get('/lectures/add', 'LectureController@addform');
+    Route::post('/lectures/add', 'LectureController@add');
+    Route::get('/lecture/detail/{id}', 'LectureController@detail');
+    Route::post('/lecture/update/{id}', 'LectureController@update');
+
+    Route::get('/events', 'EventController@index');
+    Route::get('/events/add', 'EventController@addform');
+    Route::post('/events/add', 'EventController@add');
+    Route::get('/event/detail/{id}', 'EventController@detail');
+    Route::post('/event/update/{id}', 'EventController@update');
 });

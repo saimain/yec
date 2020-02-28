@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lecture extends Model
 {
+    protected $guarded = [];
+    
     public function qualification()
     {
-        return $this->hasOne('App\Model\Qualification');
+        return $this->belongsTo('App\Model\Qualification');
     }
 
     public function course()

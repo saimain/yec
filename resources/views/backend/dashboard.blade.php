@@ -71,22 +71,18 @@
                 <h5 class="card-title">Event Notify</h5>
                 <div class="divider mt-0" style="margin-bottom: 20px;"></div>
 
-                <ul class="list-group">
+                <ul class="list-group list-group-flush">
+                    @foreach($events->sortBy('start') as $event)
                     <li class="list-group-item">
-                        <h5 class="list-group-item-heading">List group item heading</h5>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed
-                            diam eget risus varius blandit.</p>
+                        <p class="list-group-item-heading font-weight-bold text-muted">{{$event->name}}</p>
+                        <p class=" list-group-item-text">
+                            <div class="mb-2 mr-2 badge badge-primary">Start Date : {{$event->start}}</div>
+                            <div class="mb-2 mr-2 badge badge-secondary">End Date : {{$event->end}}</div>
+
+                        </p>
+
                     </li>
-                    <li class="list-group-item">
-                        <h5 class="list-group-item-heading">List group item heading</h5>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed
-                            diam eget risus varius blandit.</p>
-                    </li>
-                    <li class="list-group-item">
-                        <h5 class="list-group-item-heading">List group item heading</h5>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed
-                            diam eget risus varius blandit.</p>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -100,23 +96,9 @@
                 </h5>
                 <div class="divider mt-0" style="margin-bottom: 20px;"></div>
 
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <h5 class="list-group-item-heading">List group item heading</h5>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed
-                            diam eget risus varius blandit.</p>
-                    </li>
-                    <li class="list-group-item">
-                        <h5 class="list-group-item-heading">List group item heading</h5>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed
-                            diam eget risus varius blandit.</p>
-                    </li>
-                    <li class="list-group-item">
-                        <h5 class="list-group-item-heading">List group item heading</h5>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed
-                            diam eget risus varius blandit.</p>
-                    </li>
-                </ul>
+
+                <p class="list-group-item-text text-center">unavailable yet</p>
+
             </div>
         </div>
 

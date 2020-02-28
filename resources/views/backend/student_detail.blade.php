@@ -97,7 +97,7 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="tab-eg5-2" role="tabpanel">
-                        <form class="" action="/students/update/{{$user->id}}" method="post">
+                        <form class="" action="/student/update/{{$user->id}}" method="post">
                             @csrf
                             <div class="form-row">
                                 <div class="col-md-6">

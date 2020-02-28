@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('lecture-menu','mm-active')
+@section('event-menu','mm-active')
 
 @section('css')
 <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
@@ -12,11 +12,11 @@
 <div class="page-title-wrapper">
     <div class="page-title-heading">
         <div class="page-title-icon">
-            <i class="pe-7s-study icon-gradient bg-mean-fruit">
+            <i class="pe-7s-date icon-gradient bg-mean-fruit">
             </i>
         </div>
-        <div>Lectures Managment
-            <div class="page-title-subheading">This is the page for overview of lectures.
+        <div>Event Managment
+            <div class="page-title-subheading">This is the page for overview of events.
             </div>
         </div>
     </div>
@@ -27,21 +27,18 @@
 
 <div class="main-card mb-3 card">
     <div class="card-body">
-        <h5 class="card-title">Lectures Table</h5>
+        <h5 class="card-title">Events Table</h5>
         <div class="divider mt-0" style="margin-bottom: 20px;"></div>
 
         <div class="">
-            <table class="mb-0 table table-bordered table-hover table-responsive" id="lecture-table">
+            <table class="mb-0 table table-bordered table-hover table-responsive" id="event-table">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th style="min-width: 100px !important;">Date of Birth</th>
-                        <th>Address</th>
-                        <th>Bio</th>
-                        <th>Qualification</th>
+                        <th style="min-width: 50px;">No.</th>
+                        <th style="min-width: 310px;">Name</th>
+                        <th style="min-width: 100px;">Start Date</th>
+                        <th style="min-width: 100px;">End Date</th>
+                        <th style="min-width: 100px;">Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -50,42 +47,33 @@
                     <tr>
                         <th>No.</th>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Date of Birth</th>
-                        <th>Address</th>
-                        <th>Bio</th>
-                        <th>Qualification</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
 
                 <tbody>
-                    @foreach($lectures as $lecture)
+                    @foreach($events as $event)
                     <tr>
                         <td>{{$loop->index + 1}}</td>
-                        <td>{{$lecture->name}}</td>
+                        <td>{{$event->name}}</td>
+                        <td>{{$event->start}}</td>
+                        <td>{{$event->end}}</>
                         <td>
-                            {{$lecture->email}}
-                        </td>
-                        <td>{{$lecture->phone}}</td>
-                        <td>
-                            {{$lecture->dob}}
-                        </td>
-                        <td>
-                            {{$lecture->address}}
-                        </td>
-                        <td>
-                            {{ substr($lecture->bio, 0, 20) }}
-                        </td>
-                        <td>{{$lecture->qualification->name}}</td>
-                        <td>
+                            @if($event->status == 0)
+                            <div class="mb-2 mr-2 badge badge-info">Upcoming</div>
+                            @else
+                            <div class="mb-2 mr-2 badge badge-secondary">Passed</div>
 
-                            <a href="/lecture/detail/{{$lecture->id}}" class="mb-2 mr-2 btn btn-sm btn-info text-white"
-                                data-id="{{$lecture->id}}">
+                            @endif
+                        </td>
+                        <td>
+                            <a href="/event/detail/{{$event->id}}" class="mb-2 mr-2 btn btn-sm btn-info text-white"
+                                data-id="{{$event->id}}">
                                 Check
                             </a>
-
                         </td>
 
                     </tr>
@@ -105,7 +93,10 @@
 
 <script>
     $(document).ready(function() {
-        var table = $('#lecture-table').DataTable();
+        var table = $('#event-table').DataTable({
+            "pagingType": "simple"
+
+        });
 
 
 

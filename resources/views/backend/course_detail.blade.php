@@ -101,7 +101,7 @@
 
                     </div>
                     <div class="tab-pane" id="tab-eg5-2" role="tabpanel">
-                        <form class="" action="/courses/update/{{$course->id}}" method="post">
+                        <form class="" action="/course/update/{{$course->id}}" method="post">
                             @csrf
                             <div class="form-row">
                                 <div class="col-md-3">
