@@ -185,7 +185,6 @@
                 ['height', ['height']]
             ]
         });
-        $('#summernote').summernote('editor.pasteHTML', '{{$course->description}}');
 
     });
 </script>
