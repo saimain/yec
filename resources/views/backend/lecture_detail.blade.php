@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('course-menu','mm-active')
+@section('lecture-menu','mm-active')
 
 @section('css')
 
