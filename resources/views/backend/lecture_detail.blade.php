@@ -121,7 +121,8 @@
                                     <div class="position-relative form-group"><label for="qualification"
                                             class="">Qualification</label>
                                         <select class="mb-2 form-control qualification-select" name="qualification_id">
-                                            <option selected>{{$lecture->qualification->name}}</option>
+                                            <option selected value="{{$lecture->qualificatin->id}}">
+                                                {{$lecture->qualification->name}}</option>
                                             @foreach($qualifications as $qualification)
                                             <option value="{{$qualification->id}}">{{$qualification->name}}</option>
                                             @endforeach
