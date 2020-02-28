@@ -67,42 +67,113 @@
 <div class="row">
     <div class="col-md-6">
         <div class="main-card mb-3 card">
-            <div class="card-body">
-                <h5 class="card-title">Event Notify</h5>
-                <div class="divider mt-0" style="margin-bottom: 20px;"></div>
+            <ul class="list-group list-group-flush">
+                @foreach($events->sortBy('start') as $event)
+                <li class="list-group-item">
+                    <div class="widget-content p-0">
+                        <div class="widget-content-outer">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left">
+                                    <div class="widget-heading">
+                                        {{$event->name}}
+                                    </div>
+                                    <div class="widget-subheading">
+                                        Upcoming Event
+                                    </div>
+                                </div>
+                                <div class="widget-content-right">
+                                    <a href="/event/detail/{{$event->id}}"
+                                        class="mb-2 mr-2 badge badge-primary">Check</a>
+                                </div>
 
-                <ul class="list-group list-group-flush">
-                    @foreach($events->sortBy('start') as $event)
-                    <li class="list-group-item">
-                        <p class="list-group-item-heading font-weight-bold text-muted">{{$event->name}}</p>
-                        <p class=" list-group-item-text">
-                            <div class="mb-2 mr-2 badge badge-primary">Start Date : {{$event->start}}</div>
-                            <div class="mb-2 mr-2 badge badge-secondary">End Date : {{$event->end}}</div>
+                            </div>
+                            <div class="widget-progress-wrapper">
+                                <div class="progress-sub-label">
+                                    <div class="sub-label-left">
+                                        From : {{date('d-m-Y', strtotime($event->start))}}
+                                    </div>
+                                    <div class="sub-label-right">
+                                        To : {{date('d-m-Y', strtotime($event->end))}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                @endforeach
 
-                        </p>
-
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
+            </ul>
         </div>
-
     </div>
     <div class="col-md-6">
-        <div class="main-card mb-3 card">
+        <div class="mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">
-                    Birthday Notify
-                </h5>
-                <div class="divider mt-0" style="margin-bottom: 20px;"></div>
+                <h6 class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">Birthday Notify</h6>
+                <div class="scroll-area-sm">
+                    <div class="scrollbar-container">
+                        <ul class="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
+                            @foreach($users as $user)
+                            @php
+                            $userdob = $user->detail->dob->format('d M');
+                            @endphp
+                            @if($userdob == $today)
+                            <li class="list-group-item">
+                                <div class="widget-content p-0">
+                                    <div class="widget-content-wrapper">
+                                        <div class="widget-content-left mr-3">
+                                            <i class="metismenu-icon pe-7s-user pe-3x pe-va"></i>
+                                        </div>
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading">Today is <span
+                                                    class="text-primary">{{$user->name}} </span>birthday
+                                            </div>
+                                            <a href="/student/detail/{{$user->id}}">
+                                                <div class="widget-subheading">Click to see detail</div>
+                                            </a>
+                                        </div>
+                                        <div class="widget-content-right">
+                                            <div class="font-size-xlg text-muted">
+                                                <span>{{$today}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            @elseif($userdob == $dateToCompare)
+                            <li class="list-group-item">
+                                <div class="widget-content p-0">
+                                    <div class="widget-content-wrapper">
+                                        <div class="widget-content-left mr-3">
+                                            <i class="metismenu-icon pe-7s-user pe-3x pe-va"></i>
+                                        </div>
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading">Tomorrow is <span
+                                                    class="text-primary">{{$user->name}} </span>birthday
+                                            </div>
+                                            <a href="/student/detail/{{$user->id}}">
+                                                <div class="widget-subheading">Click to see detail</div>
+                                            </a>
+                                        </div>
+                                        <div class="widget-content-right">
+                                            <div class="font-size-xlg text-muted">
+                                                <span>{{$dateToCompare}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            @else
+                            @endif
+                            @endforeach
 
-
-                <p class="list-group-item-text text-center">unavailable yet</p>
-
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
+</div>
+</div>
 </div>
 
 @endsection

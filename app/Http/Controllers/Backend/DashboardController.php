@@ -22,8 +22,9 @@ class DashboardController extends Controller
 
         $user_bd = User::with('detail')->get();
         $dateToCompare = Carbon::now()->tomorrow()->format('d M');
+        $today = Carbon::now()->format('d M');
 
 
-        return view('backend.dashboard', compact('users', 'lectures', 'courses', 'events', 'user_bd'));
+        return view('backend.dashboard', compact('users', 'lectures', 'courses', 'events', 'user_bd', 'dateToCompare', 'today'));
     }
 }

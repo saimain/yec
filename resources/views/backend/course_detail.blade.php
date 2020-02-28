@@ -63,7 +63,8 @@
 
                                             @else
 
-                                            <div class="mb-2 mr-2 badge badge-secondary">This Course was completed
+                                            <div class="mb-2 mr-2 badge badge-secondary">This Course was completed at
+                                                {{date('d-m-Y', strtotime($course->updated_at))}}
                                             </div>
 
                                             @endif

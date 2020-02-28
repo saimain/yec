@@ -140,8 +140,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="position-relative form-group"><label for="dob" class="">Date of
-                                            Birth</label><input name="dob" id="dob" type="date" class="form-control"
-                                            value="{{$user->detail->dob}}">
+                                            Birth</label><input value="{{$user->detail->dob}}" name="dob" id="dob"
+                                            type="date" class="form-control">
                                     </div>
                                 </div>
                             </div>

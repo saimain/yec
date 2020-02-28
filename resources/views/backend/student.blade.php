@@ -63,7 +63,6 @@
                     <tr>
                         <td>{{$loop->index + 1}}</td>
                         <td>{{$user->name}}</td>
-                        <td>{{$user->name}}</td>
                         <td>{{$user->email}}</>
                         <td>
                             {{$user->detail['phone']}}
@@ -72,6 +71,7 @@
                             {{date('d-m-Y', strtotime($user->detail['dob']))}}
                         </td>
                         <td>{{$user->detail['company']}}</td>
+                        <td>{{date('d-m-Y',strtotime($user->created_at))}}</td>
                         <td>
 
                             <a href="/student/detail/{{$user->id}}" class="mb-2 mr-2 btn btn-sm btn-info text-white"

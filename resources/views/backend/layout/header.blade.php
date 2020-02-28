@@ -228,7 +228,7 @@
                             <li class="app-sidebar__heading">Settings</li>
                             <li>
                                 <a href="#" class="@yield('setting-menu')">
-                                    <i class="metismenu-icon pe-7s-date"></i>
+                                    <i class="metismenu-icon pe-7s-user"></i>
                                     Account Settings
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
