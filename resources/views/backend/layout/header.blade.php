@@ -41,14 +41,22 @@
                             <button class="search-icon"><span></span></button>
                         </div>
                         <button class="close"></button>
+
                     </div>
+
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
                         <div class="widget-content p-0">
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left">
+
                                     <div class="btn-group">
+                                        <ul class="header-menu nav">
+                                            <li class="nav-item">
+
+                                            </li>
+                                        </ul>
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
                                             <i class="metismenu-icon pe-7s-user pe-3x pe-va"></i>
@@ -67,6 +75,7 @@
                                                 <button type="submit" tabindex="0" class="dropdown-item">Logout</button>
                                             </form>
                                         </div> -->
+
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
