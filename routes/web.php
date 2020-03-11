@@ -3,6 +3,7 @@
 use Carbon\Carbon;
 use App\Model\Course;
 use App\Model\User\User;
+use App\Model\UserDetail;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,7 +22,7 @@ Route::get('admin/login', 'Backend\Auth\LoginController@showLoginForm')->name('a
 Route::post('admin/login', 'Backend\Auth\LoginController@login');
 
 
-Route::group(['namespace' => 'Backend' , 'middleware'=>'auth:admin'], function () {
+Route::group(['namespace' => 'Backend', 'middleware' => 'auth:admin'], function () {
     Route::get('/dashboard', 'DashboardController@index');
     Route::get('/students', 'UserController@index');
     Route::get('/students/add', 'UserController@addform');
@@ -30,7 +31,7 @@ Route::group(['namespace' => 'Backend' , 'middleware'=>'auth:admin'], function (
     Route::post('/students/add/course', 'UserController@addcourse');
     Route::get('/student/detail/{id}', 'UserController@detail');
     Route::post('/student/update/{id}', 'UserController@update');
-    
+
     Route::get('/courses', 'CourseController@index');
     Route::get('/courses/add', 'CourseController@addform');
     Route::post('/courses/add', 'CourseController@add');
@@ -50,4 +51,11 @@ Route::group(['namespace' => 'Backend' , 'middleware'=>'auth:admin'], function (
     Route::post('/events/add', 'EventController@add');
     Route::get('/event/detail/{id}', 'EventController@detail');
     Route::post('/event/update/{id}', 'EventController@update');
+});
+
+
+Route::get('/i', function () {
+
+    $u = UserDetail::where('phone', '00000')->first();
+    return $u->user->course;
 });

@@ -26,9 +26,7 @@
 @section('main-content')
 
 
-@php
-$user_data = Session::get('user');
-@endphp
+
 <div class="main-card mb-3 card">
     <div class="card-body">
         <h5 class="card-title">Student Course Informations</h5>
@@ -36,9 +34,18 @@ $user_data = Session::get('user');
             @csrf
             <div class="form-row">
                 <div class="col-md-6">
-                    <div class="position-relative form-group"><label for="email" class="">Student Email
-                        </label><input name="email" id="email" placeholder="Student Email" type="email"
-                            class="form-control" value="{{$user_data['email']}}">
+                    <div class="position-relative form-group">
+                        <label for="email" class="">Student Phone
+                        </label>
+                        @if(Session::has('user'))
+                        @php
+                        $user_data = Session::get('user');
+                        @endphp
+                        <input name="phone" id="phone" placeholder="Student Phone" type="text" class="form-control"
+                            value="{{$user_data['phone']}}">
+                        @else
+                        <input name="phone" id="phone" placeholder="Student Phone" type="text" class="form-control">
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-6">

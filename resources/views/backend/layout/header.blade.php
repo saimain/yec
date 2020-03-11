@@ -249,10 +249,10 @@
                                         <form id="logout-form" action="{{ route('logout') }}" id="logout_form"
                                             method="POST">
                                             @csrf
-                                            <a href="javascript:void()"
+                                            <button class="btn"
                                                 onclick="document.getElementById('logout_form').submit();">
                                                 <i class=" metismenu-icon">
-                                                </i>Logout Dashboard</a>
+                                                </i>Logout Dashboard</button>
                                         </form>
                                     </li>
 

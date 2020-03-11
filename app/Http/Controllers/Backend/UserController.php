@@ -39,7 +39,7 @@ class UserController extends Controller
             'name.required' => 'Enter Student Name',
             'email.required' => 'Enter Student Email',
             'password.required' => 'Enter Password',
-             'phone.required' => 'Ente Phone Number',
+            'phone.required' => 'Ente Phone Number',
             'dob.required' => 'Enter Date of Birth',
             'address.required' => 'Enter Student Address',
             'education.required' => 'Enter Education Level',
@@ -62,7 +62,7 @@ class UserController extends Controller
             'where' => request('where')
         ]);
 
-        return redirect('/students/add/course')->with(['user' => $user]);
+        return redirect('/students/add/course')->with(['user' => $user->detail]);
     }
 
 
@@ -75,16 +75,20 @@ class UserController extends Controller
     public function addcourse(Request $request)
     {
         $validatedData = $request->validate([
-           'email' => 'required',
-           'course_id' => 'required'
+            'phone' => 'required',
+            'course_id' => 'required'
         ], [
-            'email.required' => 'Enter Student Email',
+            'phone.required' => 'Enter Student Phone',
             'course_id.required' => 'Choose Course'
         ]);
 
-        $user_target = User::where('email', request('email')) -> first();
+
+        $user_target = UserDetail::where('phone', $request->phone)->first();
+
+
         $course = Course::find(request('course_id'));
-        $user_target->course()->syncWithoutDetaching($course);
+
+        $user_target->user->course()->syncWithoutDetaching($course);
         // return $user_target::with('course')->get();
         return redirect('/students/add')->with('success', 'Student Added');
     }
@@ -93,7 +97,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user_course = $user->course()->get();
-        
+
         return view('backend.student_detail', compact('user', 'user_course'));
     }
 
@@ -101,8 +105,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->name = request('name');
-    
-       
+
+
         $user->detail()->update([
             'phone' => request('phone'),
             'dob' => request('dob'),
@@ -115,7 +119,7 @@ class UserController extends Controller
 
 
         $user_course = $user->course()->get();
-        
+
         return view('backend.student_detail', compact('user', 'user_course'));
     }
 }
