@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class UserController extends Controller
 {
@@ -21,12 +22,34 @@ class UserController extends Controller
 
     public function addform()
     {
+
+
         return view('backend.add_student');
     }
 
 
     public function add(Request $request)
     {
+
+        $config = [
+            'table' => 'users',
+            'length' => 14,
+            'field' => 'yec_id',
+            'prefix' => 'YEC' . '00' . date('ym')
+        ];
+
+        $yec_id = IdGenerator::generate($config);
+
+        // $user = new User();
+        // $user->name = 'Sai Main';
+        // $user->yec_id = $id;
+        // $user->password = Hash::make('admin123');
+        // $user->save();
+
+        // $users = User::latest()->first();
+        // return $users->yec_id++;
+
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -49,6 +72,7 @@ class UserController extends Controller
         $user = User::create([
             'name' => request('name'),
             'email' =>  request('email'),
+            'yec_id' => $yec_id,
             'password' => Hash::make(request('password')),
         ]);
 
@@ -62,7 +86,7 @@ class UserController extends Controller
             'where' => request('where')
         ]);
 
-        return redirect('/students/add/course')->with(['user' => $user->detail]);
+        return redirect('/students/add/course')->with(['user' => $user]);
     }
 
 
@@ -75,22 +99,24 @@ class UserController extends Controller
     public function addcourse(Request $request)
     {
         $validatedData = $request->validate([
-            'phone' => 'required',
+            'yec_id' => 'required',
             'course_id' => 'required'
         ], [
-            'phone.required' => 'Enter Student Phone',
+            'yec_id.required' => 'Enter Student YEC ID',
             'course_id.required' => 'Choose Course'
         ]);
 
 
-        $user_target = UserDetail::where('phone', $request->phone)->first();
+        $user_target = User::where('yec_id', $request->yec_id)->first();
 
 
         $course = Course::find(request('course_id'));
 
-        $user_target->user->course()->syncWithoutDetaching($course);
+        $user_target->course()->syncWithoutDetaching($course);
         // return $user_target::with('course')->get();
         return redirect('/students/add')->with('success', 'Student Added');
+
+        // return;
     }
 
     public function detail($id)

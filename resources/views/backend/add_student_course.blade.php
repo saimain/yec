@@ -35,16 +35,16 @@
             <div class="form-row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="email" class="">Student Phone
+                        <label for="yec_id" class="">YEC ID
                         </label>
                         @if(Session::has('user'))
                         @php
                         $user_data = Session::get('user');
                         @endphp
-                        <input name="phone" id="phone" placeholder="Student Phone" type="text" class="form-control"
-                            value="{{$user_data['phone']}}">
+                        <input name="yec_id" id="yec_id" placeholder="Student YEC ID" type="text" class="form-control"
+                            value="{{$user_data['yec_id']}}">
                         @else
-                        <input name="phone" id="phone" placeholder="Student Phone" type="text" class="form-control">
+                        <input name="yec_id" id="yec_id" placeholder="Student YEC ID" type="text" class="form-control">
                         @endif
                     </div>
                 </div>

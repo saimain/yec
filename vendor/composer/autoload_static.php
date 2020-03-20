@@ -117,6 +117,10 @@ class ComposerStaticInitbf206c0a141a3676782d0fd403b11479
         array (
             'Illuminate\\' => 11,
         ),
+        'H' => 
+        array (
+            'Haruncpi\\LaravelIdGenerator\\' => 28,
+        ),
         'F' => 
         array (
             'Fideloper\\Proxy\\' => 16,
@@ -339,6 +343,10 @@ class ComposerStaticInitbf206c0a141a3676782d0fd403b11479
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'Haruncpi\\LaravelIdGenerator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/haruncpi/laravel-id-generator/src',
+        ),
         'Fideloper\\Proxy\\' => 
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
@@ -436,6 +444,7 @@ class ComposerStaticInitbf206c0a141a3676782d0fd403b11479
         'App\\Http\\Controllers\\Backend\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Backend\\CourseController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/CourseController.php',
         'App\\Http\\Controllers\\Backend\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/DashboardController.php',
+        'App\\Http\\Controllers\\Backend\\EventController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/EventController.php',
         'App\\Http\\Controllers\\Backend\\LectureController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/LectureController.php',
         'App\\Http\\Controllers\\Backend\\QualificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/QualificationController.php',
         'App\\Http\\Controllers\\Backend\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/UserController.php',
@@ -746,6 +755,7 @@ class ComposerStaticInitbf206c0a141a3676782d0fd403b11479
         'Facade\\Ignition\\Solutions\\SuggestUsingCorrectDbNameSolution' => __DIR__ . '/..' . '/facade/ignition/src/Solutions/SuggestUsingCorrectDbNameSolution.php',
         'Facade\\Ignition\\Solutions\\UseDefaultValetDbCredentialsSolution' => __DIR__ . '/..' . '/facade/ignition/src/Solutions/UseDefaultValetDbCredentialsSolution.php',
         'Facade\\Ignition\\Support\\ComposerClassMap' => __DIR__ . '/..' . '/facade/ignition/src/Support/ComposerClassMap.php',
+        'Facade\\Ignition\\Support\\FakeComposer' => __DIR__ . '/..' . '/facade/ignition/src/Support/FakeComposer.php',
         'Facade\\Ignition\\Support\\Packagist\\Package' => __DIR__ . '/..' . '/facade/ignition/src/Support/Packagist/Package.php',
         'Facade\\Ignition\\Support\\Packagist\\Packagist' => __DIR__ . '/..' . '/facade/ignition/src/Support/Packagist/Packagist.php',
         'Facade\\Ignition\\Support\\StringComparator' => __DIR__ . '/..' . '/facade/ignition/src/Support/StringComparator.php',
@@ -1276,6 +1286,8 @@ class ComposerStaticInitbf206c0a141a3676782d0fd403b11479
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Haruncpi\\LaravelIdGenerator\\IdGenerator' => __DIR__ . '/..' . '/haruncpi/laravel-id-generator/src/IdGenerator.php',
+        'Haruncpi\\LaravelIdGenerator\\IdGeneratorServiceProvider' => __DIR__ . '/..' . '/haruncpi/laravel-id-generator/src/IdGeneratorServiceProvider.php',
         'Highlight\\Autoloader' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Autoloader.php',
         'Highlight\\HighlightResult' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/HighlightResult.php',
         'Highlight\\Highlighter' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Highlighter.php',
@@ -3372,14 +3384,15 @@ class ComposerStaticInitbf206c0a141a3676782d0fd403b11479
         'Psy\\CodeCleaner\\CallTimePassByReferencePass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/CallTimePassByReferencePass.php',
         'Psy\\CodeCleaner\\CalledClassPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/CalledClassPass.php',
         'Psy\\CodeCleaner\\CodeCleanerPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/CodeCleanerPass.php',
+        'Psy\\CodeCleaner\\EmptyArrayDimFetchPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/EmptyArrayDimFetchPass.php',
         'Psy\\CodeCleaner\\ExitPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/ExitPass.php',
         'Psy\\CodeCleaner\\FinalClassPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/FinalClassPass.php',
         'Psy\\CodeCleaner\\FunctionContextPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/FunctionContextPass.php',
         'Psy\\CodeCleaner\\FunctionReturnInWriteContextPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/FunctionReturnInWriteContextPass.php',
         'Psy\\CodeCleaner\\ImplicitReturnPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/ImplicitReturnPass.php',
         'Psy\\CodeCleaner\\InstanceOfPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/InstanceOfPass.php',
+        'Psy\\CodeCleaner\\LabelContextPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/LabelContextPass.php',
         'Psy\\CodeCleaner\\LeavePsyshAlonePass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/LeavePsyshAlonePass.php',
-        'Psy\\CodeCleaner\\LegacyEmptyPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/LegacyEmptyPass.php',
         'Psy\\CodeCleaner\\ListPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/ListPass.php',
         'Psy\\CodeCleaner\\LoopContextPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/LoopContextPass.php',
         'Psy\\CodeCleaner\\MagicConstantsPass' => __DIR__ . '/..' . '/psy/psysh/src/CodeCleaner/MagicConstantsPass.php',
@@ -3410,10 +3423,8 @@ class ComposerStaticInitbf206c0a141a3676782d0fd403b11479
         'Psy\\Command\\ListCommand\\Enumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/Enumerator.php',
         'Psy\\Command\\ListCommand\\FunctionEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/FunctionEnumerator.php',
         'Psy\\Command\\ListCommand\\GlobalVariableEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/GlobalVariableEnumerator.php',
-        'Psy\\Command\\ListCommand\\InterfaceEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/InterfaceEnumerator.php',
         'Psy\\Command\\ListCommand\\MethodEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/MethodEnumerator.php',
         'Psy\\Command\\ListCommand\\PropertyEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/PropertyEnumerator.php',
-        'Psy\\Command\\ListCommand\\TraitEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/TraitEnumerator.php',
         'Psy\\Command\\ListCommand\\VariableEnumerator' => __DIR__ . '/..' . '/psy/psysh/src/Command/ListCommand/VariableEnumerator.php',
         'Psy\\Command\\ParseCommand' => __DIR__ . '/..' . '/psy/psysh/src/Command/ParseCommand.php',
         'Psy\\Command\\PsyVersionCommand' => __DIR__ . '/..' . '/psy/psysh/src/Command/PsyVersionCommand.php',
@@ -3441,7 +3452,6 @@ class ComposerStaticInitbf206c0a141a3676782d0fd403b11479
         'Psy\\Exception\\ThrowUpException' => __DIR__ . '/..' . '/psy/psysh/src/Exception/ThrowUpException.php',
         'Psy\\Exception\\TypeErrorException' => __DIR__ . '/..' . '/psy/psysh/src/Exception/TypeErrorException.php',
         'Psy\\ExecutionClosure' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionClosure.php',
-        'Psy\\ExecutionLoop' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionLoop.php',
         'Psy\\ExecutionLoopClosure' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionLoopClosure.php',
         'Psy\\ExecutionLoop\\AbstractListener' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionLoop/AbstractListener.php',
         'Psy\\ExecutionLoop\\Listener' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionLoop/Listener.php',
@@ -4483,6 +4493,7 @@ class ComposerStaticInitbf206c0a141a3676782d0fd403b11479
         'phpDocumentor\\Reflection\\Types\\Array_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Array_.php',
         'phpDocumentor\\Reflection\\Types\\Boolean' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Boolean.php',
         'phpDocumentor\\Reflection\\Types\\Callable_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Callable_.php',
+        'phpDocumentor\\Reflection\\Types\\ClassString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/ClassString.php',
         'phpDocumentor\\Reflection\\Types\\Collection' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Collection.php',
         'phpDocumentor\\Reflection\\Types\\Compound' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Compound.php',
         'phpDocumentor\\Reflection\\Types\\Context' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Context.php',

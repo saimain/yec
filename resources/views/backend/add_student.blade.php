@@ -30,8 +30,9 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="position-relative form-group"><label for="email" class="">Email</label><input
-                            name="email" id="email" placeholder="Student Email" type="email" class="form-control">
+                    <div class="position-relative form-group"><label for="email" class=""></labe>Email
+                            (Optional)</label>
+                        <input name="email" id="email" placeholder="Student Email" type="email" class="form-control">
                     </div>
                 </div>
             </div>
