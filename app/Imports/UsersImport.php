@@ -3,6 +3,8 @@
 namespace App\Imports;
 
 use App\Model\User\User;
+use App\Model\UserDetail;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\ToModel;
 
@@ -15,32 +17,27 @@ class UsersImport implements ToModel
      */
     public function model(array $row)
     {
-        // return new User([
-        //     'name'     => $row[0],
-        //     'email'    => $row[1],
-        //     'yec_id' => $row[2],
-        //     'password' => Hash::make($row[2]),
-        // ]);
+        User::create([
+            'name'     => $row[1],
+            'email'    => $row[3],
+            'yec_id' => $row[2],
+            'password' => Hash::make($row[4]),
+        ]);
 
-        $user = new User;
+        UserDetail::create([
+            'user_id'     => $row[0],
+            'phone'    => $row[6],
+            'dob' => $row[7],
+            'address' => $row[8],
+            'education' => $row[9],
+            'company' => $row[10],
+            'role' => $row[11],
+            'where' => $row[12]
+        ]);
 
-        $user->name = $row[1];
-        $user->email = $row[3];
-        $user->yec_id = $row[2];
-        $user->password = $row[4];
-
-        $user->detail()->user_id = $row[0];
-        $user->detail()->phone = $row[6];
-        $user->detail()->dob = $row[7];
-        $user->detail()->address = $row[8];
-        $user->detail()->education = $row[9];
-        $user->detail()->company = $row[10];
-        $user->detail()->role = $row[11];
-        $user->detail()->where = $row[12];
-
-        $user->course()->user_id = $row[0];
-        $user->course()->course_id = $row[5];
-
-        return $user->save();
+        DB::table('course_user')->insert([
+            'user_id' => $row[0],
+            'course_id' => $row[5]
+        ]);
     }
 }

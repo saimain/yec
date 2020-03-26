@@ -9,6 +9,7 @@ use App\Imports\UsersImport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Imports\UserImport;
 use App\Imports\UsersCourseImport;
 use App\Imports\UsersDetailImport;
 use Illuminate\Support\Facades\Hash;

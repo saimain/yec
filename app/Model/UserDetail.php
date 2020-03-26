@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserDetail extends Model
 {
-    protected $guarded = [];
-    protected $dates = ['dob'];
+    protected $fillable = [
+        'user_id', 'phone', 'dob', 'address', 'education', 'company', 'role', 'where'
+    ];
+
+    // protected $dates = ['dob'];
 
     public function user()
     {
