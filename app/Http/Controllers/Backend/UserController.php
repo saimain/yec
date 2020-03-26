@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Backend;
 use App\Model\Course;
 use App\Model\User\User;
 use App\Model\UserDetail;
+use App\Imports\UsersImport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Imports\UsersCourseImport;
+use App\Imports\UsersDetailImport;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Crypt;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
@@ -147,5 +151,18 @@ class UserController extends Controller
         $user_course = $user->course()->get();
 
         return view('backend.student_detail', compact('user', 'user_course'));
+    }
+
+
+    public function importExcel(Request $request)
+    {
+
+        $csv = $request->file('csv-file');
+
+        Excel::import(new UsersImport, $csv);
+        // Excel::import(new UsersDetailImport, $csv);
+        // Excel::import(new UsersCourseImport, $csv);
+
+        return 'success';
     }
 }

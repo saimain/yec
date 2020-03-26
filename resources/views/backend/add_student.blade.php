@@ -13,6 +13,19 @@
             </div>
         </div>
     </div>
+    <div class="page-title-actions">
+        <form action="/student/import" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="d-inline-block">
+                <div class="position-relative form-group"><label for="csv-file" class="">Import CSV</label>
+                    <input name="csv-file" id="csv-file" type="file" class="form-control-file">
+                </div>
+            </div>
+            <button class="mb-2 mr-2 btn btn-sm btn-primary">Submit
+            </button>
+        </form>
+
+    </div>
 </div>
 @endsection
 

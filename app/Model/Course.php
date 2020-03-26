@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     protected $guarded = [];
-    
+
     public function lecture()
     {
         return $this->belongsTo(Lecture::class);

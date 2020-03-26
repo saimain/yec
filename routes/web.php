@@ -32,6 +32,9 @@ Route::group(['namespace' => 'Backend', 'middleware' => 'auth:admin'], function 
     Route::get('/student/detail/{id}', 'UserController@detail');
     Route::post('/student/update/{id}', 'UserController@update');
 
+
+    Route::post('/student/import', 'UserController@importExcel');
+
     Route::get('/courses', 'CourseController@index');
     Route::get('/courses/add', 'CourseController@addform');
     Route::post('/courses/add', 'CourseController@add');
