@@ -17,7 +17,7 @@ class CreateUserDetailsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
             $table->string('phone');
-            $table->text('dob');
+            $table->date('dob');
             $table->text('address');
             $table->text('education');
             $table->text('company')->nullable();

@@ -11,7 +11,7 @@ class UserDetail extends Model
         'user_id', 'phone', 'dob', 'address', 'education', 'company', 'role', 'where'
     ];
 
-    // protected $dates = ['dob'];
+    protected $dates = ['dob'];
 
     public function user()
     {
