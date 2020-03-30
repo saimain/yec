@@ -21,7 +21,7 @@
                     <input name="csv-file" id="csv-file" type="file" class="form-control-file">
                 </div>
             </div>
-            <button class="mb-2 mr-2 btn btn-sm btn-primary">Submit
+            <button class="mb-2 mr-2 btn btn-sm btn-primary">Import
             </button>
         </form>
 
