@@ -48,6 +48,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Personal Informations</h5>
                                         <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{$user->yec_id}}</li>
                                             <li class="list-group-item">{{$user->name}}</li>
                                             <li class="list-group-item">{{$user->email}}</li>
                                             <li class="list-group-item">{{$user->detail->phone}}</li>
@@ -84,8 +85,10 @@
                                             <h5 class="list-group-item-heading">{{$i->name}}
                                                 @if($i->status == 0)
                                                 <div class="mb-2 mr-2 badge badge-pill badge-success">Running</div>
+                                                <span> {{date('d-m-Y', strtotime($i->updated_at))}}</span>
                                                 @else
                                                 <div class="mb-2 mr-2 badge badge-pill badge-secondary">Completed</div>
+                                                <span> {{date('d-m-Y', strtotime($i->updated_at))}}</span>
                                                 @endif
                                             </h5>
                                             <p class="list-group-item-text">{{$i->description}}</p>

@@ -36,6 +36,7 @@
                     <tr>
                         <th>No.</th>
                         <th style="min-width:150px !important;">Name</th>
+                        <th>YEC ID</th>
                         <th>Email</th>
                         <th>Phone</th>
                         <th style="min-width:100px !important;">Date of Birth</th>
@@ -49,6 +50,7 @@
                     <tr>
                         <th>No.</th>
                         <th>Name</th>
+                        <th>YEC ID</th>
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Date of Birth</th>
@@ -63,7 +65,8 @@
                     <tr>
                         <td>{{$loop->index + 1}}</td>
                         <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</>
+                        <td>{{$user->yec_id}}</td>
+                        <td>{{$user->email}}</td>
                         <td>
                             {{$user->detail['phone']}}
                         </td>
